@@ -8,14 +8,14 @@
 import UIKit
 import RealmSwift
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var textBox: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        textBox.delegate = self
     }
     
     //TodoをRealmに追加
@@ -33,6 +33,13 @@ class AddViewController: UIViewController {
         
         //ひとつ前のViewControllerに戻る
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    //returnボタンタップ時にUITextFieldを閉じる処理
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.textBox.resignFirstResponder()
+        
+        return true
     }
     
     /*
