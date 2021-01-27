@@ -52,5 +52,22 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    //セルの削除ボタンが押された時の処理
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //セルに削除編集コントロールがあるとき
+        if editingStyle == .delete {
+            //該当箇所のセルを削除する
+            deleteTodo(at: indexPath.row)
+            table.reloadData()
+        }
+    }
+    
+    //指定のTodoデータを削除する処理
+    func deleteTodo(at index: Int) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(todoItems[index])
+        }
+    }
 }
 
