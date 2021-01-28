@@ -16,6 +16,7 @@
 		9A69F5BE25C0396F009D1C8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A69F5BC25C0396F009D1C8B /* LaunchScreen.storyboard */; };
 		9A69F5CC25C03C3F009D1C8B /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F5CB25C03C3F009D1C8B /* Todo.swift */; };
 		9A69F5D225C1982C009D1C8B /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F5D125C1982C009D1C8B /* AddViewController.swift */; };
+		9A69F5D525C2E650009D1C8B /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F5D425C2E650009D1C8B /* EditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9A69F5BF25C0396F009D1C8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A69F5CB25C03C3F009D1C8B /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		9A69F5D125C1982C009D1C8B /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		9A69F5D425C2E650009D1C8B /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		ADD4FC8FDBE759CDCB3023A7 /* Pods_SwiftTodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B93C3ACAE4325DCD085B094B /* Pods-SwiftTodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTodo.debug.xcconfig"; path = "Target Support Files/Pods-SwiftTodo/Pods-SwiftTodo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 				9A69F5B125C0396C009D1C8B /* AppDelegate.swift */,
 				9A69F5B325C0396C009D1C8B /* SceneDelegate.swift */,
 				9A69F5B525C0396C009D1C8B /* ViewController.swift */,
+				9A69F5D425C2E650009D1C8B /* EditViewController.swift */,
 				9A69F5B725C0396C009D1C8B /* Main.storyboard */,
 				9A69F5D125C1982C009D1C8B /* AddViewController.swift */,
 				9A69F5BA25C0396F009D1C8B /* Assets.xcassets */,
@@ -213,6 +216,7 @@
 			files = (
 				9A69F5D225C1982C009D1C8B /* AddViewController.swift in Sources */,
 				9A69F5B625C0396C009D1C8B /* ViewController.swift in Sources */,
+				9A69F5D525C2E650009D1C8B /* EditViewController.swift in Sources */,
 				9A69F5B225C0396C009D1C8B /* AppDelegate.swift in Sources */,
 				9A69F5B425C0396C009D1C8B /* SceneDelegate.swift in Sources */,
 				9A69F5CC25C03C3F009D1C8B /* Todo.swift in Sources */,
