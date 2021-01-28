@@ -10,10 +10,24 @@ import RealmSwift
 
 class EditViewController: UIViewController {
     
+    //遷移元からタップしたセルの番号を受け取るための変数
+    var index = Int()
+
+    var todoItems: Results<Todo>!
+    
     @IBOutlet weak var todoText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //データベースインスタンス化
+        let realm = try! Realm()
+        
+        //TodoデータをtodoItemsに入れる
+        todoItems = realm.objects(Todo.self)
+
+        //遷移元のセル番号のTodoをラベルに反映
+        todoText.text = todoItems[index].title
         
     }
     
