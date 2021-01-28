@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var todoItems: Results<Todo>!
     @IBOutlet weak var table: UITableView!
@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        table.delegate = self
         table.dataSource = self
         
         //データベースのインスタンス化
@@ -67,6 +68,31 @@ class ViewController: UIViewController, UITableViewDataSource {
         let realm = try! Realm()
         try! realm.write {
             realm.delete(todoItems[index])
+        }
+    }
+    
+    //セル選択時に実行される処理
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        //セルの選択の解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        //別画面に遷移（その際、senderにセルの番号を指定）
+        performSegue(withIdentifier: "editViewController", sender: indexPath.row)
+        
+    }
+    
+    //segueが動作する時に処理されるメソッド
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //編集ページに遷移した時
+        if segue.identifier == "editViewController" {
+            
+            let editVC = segue.destination as? EditViewController
+            
+            //遷移先にタップしたセルの番号を渡す
+            editVC?.index = sender as! Int
+            
         }
     }
 }
