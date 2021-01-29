@@ -37,6 +37,18 @@ class EditViewController: UIViewController, UITextFieldDelegate {
         textBox.text = todoItems[index].title
     }
     
+    @IBAction func updateTodo(_ sender: Any) {
+        let realm = try! Realm()
+        
+        //Todoデータの更新
+        try! realm.write {
+            todoItems[index].title = textBox.text!
+        }
+        
+        //ひとつ前のViewControllerに戻る
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     //returnボタンタップ時にUITextFieldを閉じる処理
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.textBox.resignFirstResponder()
