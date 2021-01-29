@@ -8,17 +8,21 @@
 import UIKit
 import RealmSwift
 
-class EditViewController: UIViewController {
+class EditViewController: UIViewController, UITextFieldDelegate {
     
     //遷移元からタップしたセルの番号を受け取るための変数
     var index = Int()
 
     var todoItems: Results<Todo>!
     
+    @IBOutlet weak var textBox: UITextField!
+    
     @IBOutlet weak var todoText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textBox.delegate = self
         
         //データベースインスタンス化
         let realm = try! Realm()
@@ -29,9 +33,17 @@ class EditViewController: UIViewController {
         //遷移元のセル番号のTodoをラベルに反映
         todoText.text = todoItems[index].title
         
+        //テキストエリアの初期値にTodoを反映
+        textBox.text = todoItems[index].title
     }
     
-
+    //returnボタンタップ時にUITextFieldを閉じる処理
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.textBox.resignFirstResponder()
+        
+        return true
+    }
+    
     /*
     // MARK: - Navigation
 
